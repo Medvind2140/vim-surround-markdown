@@ -4,27 +4,24 @@ function! SurroundIt()
 endfunction
 
 function! RemoveTags()
-    let l:start_line = line('.')
-    let l:end_line = l:start_line
+    let l:current_line = line('.')
+    let l:current_col = col('.')
 
-    " Search backwards for the opening ```
     if search('^```', 'bcW') > 0
         let l:start_line = line('.')
+        delete _
+        
+        if search('^```', 'W') > 0
+            delete _
+            
+            call cursor(l:current_line - 1, l:current_col)
+        else
+            echo "No closing tag found"
+            call cursor(l:current_line - 1, l:current_col)
+        endif
     else
-        echo "No codeblock start found above the cursor"
-        return
+        echo "No opening tag found above the cursor"
     endif
-
-    " Search forwards for the closing ```
-    if search('^```', 'W') > 0
-        let l:end_line = line('.')
-    else
-        echo "No codeblock end found below the cursor"
-        return
-    endif
-
-    " Delete the lines
-    execute l:start_line . ',' . l:end_line . 'delete _'
 endfunction
 
 vnoremap _s :<C-U>call SurroundIt()<CR>
