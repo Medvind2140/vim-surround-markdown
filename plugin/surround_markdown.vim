@@ -3,17 +3,29 @@ function! SurroundIt()
     execute "normal! `<O```" . l:language . "\<Esc>`>o```\<Esc>"
 endfunction
 
-function! JumpToStart()
-    let l:current_line = line('.')
-    let l:current_col = col('.')
-    
-    if search('^```', 'bcW')
-        normal! $
+function! RemoveTags()
+    let l:start_line = line('.')
+    let l:end_line = l:start_line
+
+    " Search backwards for the opening ```
+    if search('^```', 'bcW') > 0
+        let l:start_line = line('.')
     else
-        call cursor(l:current_line, l:current_col)
         echo "No codeblock start found above the cursor"
+        return
     endif
+
+    " Search forwards for the closing ```
+    if search('^```', 'W') > 0
+        let l:end_line = line('.')
+    else
+        echo "No codeblock end found below the cursor"
+        return
+    endif
+
+    " Delete the lines
+    execute l:start_line . ',' . l:end_line . 'delete _'
 endfunction
 
 vnoremap ,q :<C-U>call SurroundIt()<CR>
-nnoremap ,s :call JumpToStart()<CR>
+nnoremap ,s :call RemoveTags()<CR>
