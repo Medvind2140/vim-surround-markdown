@@ -20,7 +20,6 @@ call plug#begin()
     Plug '~/.vim/plugged/vim-surround-markdown'
 ```
 
-Press ":"
 ```code
 :source ~/.vimrc
 ```
