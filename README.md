@@ -1,5 +1,5 @@
 # vim-surround-markdown
-[vim-surround-markdown.webm](https://github.com/user-attachments/assets/b21808aa-2499-40fc-954b-be9693ea8b4c)
+![vim-surround-markdown](https://github.com/user-attachments/assets/63fe592f-308c-4c8d-bc3c-bdee3442656f)
 Simple plugin - Tagging of markdown code blocks!
 
 ## Usage
