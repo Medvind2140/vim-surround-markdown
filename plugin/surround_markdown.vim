@@ -27,5 +27,5 @@ function! RemoveTags()
     execute l:start_line . ',' . l:end_line . 'delete _'
 endfunction
 
-vnoremap ,q :<C-U>call SurroundIt()<CR>
-nnoremap ,s :call RemoveTags()<CR>
+vnoremap _s :<C-U>call SurroundIt()<CR>
+nnoremap _r :call RemoveTags()<CR>

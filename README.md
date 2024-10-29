@@ -6,14 +6,14 @@ Simple plugin - Tagging of markdown code blocks!
 ## Usage
 ### Block Surround
 1. Select the text you want to surround in visual mode.
-2. Press `_q`.
+2. Press `_s`.
 3. Enter the language for the code block when prompted.
 
 The selected text will be surrounded with Markdown code block tags for the specified language.
 
 ### Block Remove
 1. Move cursor within a code block
-2. Press `_d`
+2. Press `_r`
 
 The tags surrounding the codeblock will be removed
 
