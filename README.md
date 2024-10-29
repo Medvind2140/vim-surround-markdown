@@ -18,7 +18,7 @@ In your .vimrc
 
 ```code
 call plug#begin()
-    Plug '~/.vim/plugged/vim-surround-markdown'
+    Plug 'Medvind2140/vim-surround-markdown'
 ```
 
 ```code
