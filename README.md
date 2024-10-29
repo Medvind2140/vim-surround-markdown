@@ -23,6 +23,7 @@ call plug#begin()
 
 ```code
 :source ~/.vimrc
+:PlugUpdate
 ```
 
 Note! Only tested on Vi IMproved 9.1
